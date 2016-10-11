@@ -1,0 +1,24 @@
+{
+    "name": "phpmvc-projekt",    
+    "type": "webpage",
+    "description": "Webtemplate to create websites",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ingrid Bergman",
+            "email": "infa16@student.bth.se",
+            "homepage": "http://www.student.bth.se/~infa16/dbwebb-kurser/phpmvc/me/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "mos/ctextfilter": "1.2.2",
+        "mos/cform": "2.*@dev",
+        "mos/cdatabase": "dev-master",
+        "phpmvc/comment": "dev-master"
+    },
+    "autoload": {
+        "psr-4": { "Anax\\": "src/" }
+    }
+}
