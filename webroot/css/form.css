@@ -1,28 +1,52 @@
 /**
  * Style for forms
  */
+
+fieldset {
+    border: 2px solid darkred;
+
+}
+
+input, textarea {
+
+    border-radius: 2px;
+}
+
 label {
-  font-size: smaller;
+    font-size: smaller;
 }
 
 input[type=text],
 input[type=password] {
-  font-size: 1.2em;
-  width: 500px;
+    font-size: 1.2em;
+    width: 500px;
 }
 
 input[type=submit],
 input[type=reset] {
-  font-size: 1.2em;
+    font-size: 1em;
+    background-color: darkblue;
+    color: lightgoldenrodyellow;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 1px solid transparent;
+    margin-right: 5px;
+}
+
+input[type=submit]:hover,
+input[type=reset]:hover {
+    box-shadow: 2px 2px 4px #848d95;
+    cursor: pointer;
 }
 
 textarea {
-  font-size: 1.2em;
-  width: 500px;
-  min-height: 200px;
+    font-size: 1.2em;
+    width: 500px;
+    min-height: 200px;
+    resize: none;
 }
 
 p.buttons {
-  padding-top: 22px;
-  padding-bottom: 22px;
-} 
+    padding-top: 22px;
+    padding-bottom: 22px;
+}

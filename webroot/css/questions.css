@@ -1,0 +1,169 @@
+/**
+* Question-list
+*/
+
+#questions {
+    float: left;
+    width: 728px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid darkblue;
+}
+
+#question-summary {
+    padding: 12px 0 10px 0;
+}
+
+.statscontainer {
+    width: 78px;
+    float: left;
+    margin: 10px;
+}
+
+.vote {
+    display: block;
+    text-align: center;
+    padding: 7px 0 5px 0;
+    margin-bottom: 8px;
+    border: 2px solid darkblue;
+}
+
+.answers {
+    display: block;
+    background-color: darkred;
+    color: lightgoldenrodyellow;
+    padding: 7px 0 5px 0;
+    text-align: center;
+}
+
+.summary {
+    float: left;
+    width: 630px;
+}
+
+.summary h3 {
+    color: darkblue;
+    line-height: 1.3;
+    margin-bottom: 1.2em;
+}
+
+.summary a {
+    text-decoration: none;
+}
+
+.question-extract {
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+.tags {
+    line-height: 18px;
+    float: left;
+}
+
+/*
+*  Question
+*/
+
+#question h1 {
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+    color: darkblue;
+}
+
+.vote-cell {
+    vertical-align: top;
+    padding-right: 15px;
+}
+
+.vote-container {
+    min-width: 46px;
+    text-align: center;
+}
+
+.vote-up, .vote-down {
+    display: block;
+    margin: 0 auto;
+    width: 40px;
+    height: 40px;
+    font-size: 50px;
+    line-height: 1em;
+    border: 1px solid greenyellow;
+}
+
+.vote-count {
+    display: block;
+    margin: 8px 0;
+    font-size: 20px;
+    border: 1px solid hotpink;
+}
+
+.question-cell {
+    vertical-align: top;
+}
+
+.post-text {
+    width: 550px;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+    line-height: 1.3;
+}
+
+.post-text p {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+/*
+*  For answer
+*/
+
+.answer-cell {
+    vertical-align: top;
+}
+
+.accepted {
+    display: block;
+    margin: 0 auto;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    line-height: 1em;
+    border: 1px solid greenyellow;
+    padding-top: 8px;
+    color: green;
+}
+
+/*
+*  For comments to answer
+*/
+
+.comments {
+    width: 550px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid darkred;
+}
+
+.comment-cell {
+    padding: 6px 6px 6px 2px;
+    vertical-align: top;
+    line-height: 1.3;
+    border-bottom: 1px solid darkred;
+    white-space: nowrap;
+    width: 550px;
+}
+
+.comment-content {
+    display: block;
+    line-height: 1.3;
+}
+
+.comment-text {
+    display: block;
+}
+
+.comment-user {
+    white-space: nowrap;
+    padding: 0;
+}

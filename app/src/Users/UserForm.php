@@ -16,11 +16,11 @@ class UserForm extends \Mos\HTMLForm\CForm
     public function __construct($user = null)
     {
         $this->user = $user;
-        $isChecked = empty($user) ? false : $user->active;
+
         parent::__construct([], [
             'acronym' => [
                 'type' => 'text',
-                'value' => empty($user) ? null : $user->acronym,
+                'value' => null,
                 'label' => 'Användarnamn:',
                 'required' => true,
                 'validation' => ['not_empty'],
@@ -28,28 +28,28 @@ class UserForm extends \Mos\HTMLForm\CForm
             ],
             'name' => [
                 'type' => 'text',
-                'value' => empty($user) ? null : $user->name,
+                'value' => null,
                 'label' => 'Namn:',
                 'required' => true,
                 'validation' => ['not_empty'],
             ],
             'email' => [
                 'type' => 'text',
-                'value' => empty($user) ? null : $user->email,
+                'value' => null,
                 'label' => 'E-mail:',
                 'required' => true,
                 'validation' => ['not_empty', 'email_adress'],
             ],
             'password' => [
                 'type' => 'password',
+                'value' => null,
                 'label' => 'Lösenord:',
                 'required' => true,
                 'validation' => ['not_empty'],
             ],
-            'active' => [
-                'type' => 'checkbox',
-                'label' => 'Aktiv',
-                'checked' => $isChecked,
+            'created' => [
+                'type' => 'date',
+                'value' => null
             ],
             'submit' => [
                 'type' => 'submit',
@@ -89,8 +89,6 @@ class UserForm extends \Mos\HTMLForm\CForm
             'name' => $this->value('name'),
             'password' => password_hash($this->value('password'), PASSWORD_DEFAULT),
             'created' => empty($this->user) ? $now : $this->user->created,
-            'updated' => $now,
-            'active' => $this['active']->attributes['checked'] ? $now : null,
         ]);
         return $result;
     }
@@ -114,3 +112,4 @@ class UserForm extends \Mos\HTMLForm\CForm
         $this->redirectTo();
     }
 }
+

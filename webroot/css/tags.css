@@ -1,0 +1,48 @@
+.page-description-tags p {
+    line-height: 1.1em;
+}
+
+.tags-list {
+    width: 100%;
+}
+
+.tag-overview {
+    float: left;
+    width: 23%;
+    border-bottom: 1px dotted darkblue;
+    padding-bottom: 10px;
+    padding-right: 6px;
+    padding-top: 10px;
+    vertical-align: top;
+
+}
+
+.tag {
+    background-color: lightyellow;
+    position: relative;
+    display: inline-block;
+    padding: .4em .5em;
+    margin: 2px 2px 2px 0;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+    text-align: center;
+    transition: all .15s ease-in-out;
+    border: 2px solid yellow;
+}
+
+.tag-count {
+    font-size: 11px;
+    color: #6a737c;
+}
+
+.tag-extract {
+    font-size: 14px;
+    height: 39px;
+    line-height: 1em;
+    overflow: hidden;
+    margin-bottom: 4px;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+}

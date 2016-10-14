@@ -186,16 +186,12 @@ class UsersController implements \Anax\DI\IInjectionAware
                 'acronym' => ['varchar(20)', 'unique', 'not null'],
                 'email' => ['varchar(80)'],
                 'name' => ['varchar(80)'],
-                'password' => ['varchar(255)'],
-                'created' => ['datetime'],
-                'updated' => ['datetime'],
-                'deleted' => ['datetime'],
-                'active' => ['datetime'],
+                'password' => ['varchar(255)']                
             ]
         )->execute();
         $this->di->db->insert(
             'User',
-            ['acronym', 'email', 'name', 'password', 'created', 'active']
+            ['acronym', 'email', 'name', 'password']
         );
 
         $now = gmdate('Y-m-d H:i:s');

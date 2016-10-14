@@ -1,97 +1,191 @@
 /**
  * General elements
  */
+@import url(https://fonts.googleapis.com/css?family=Patua+One|Eczar);
+@import url(form.css);
 
-@import url(figure.css);
-
-body {
-  color: #333;
-  font-family: arial, sans-serif;
-  overflow-y: scroll;
+html {
+    color: #0B0F15;
+    font-family: arial, sans-serif;
+    overflow-y: scroll;
+    background-color: darkblue;
 }
 
-h1 {
-  font-size: 2.2em;
+a {
+    text-decoration: none;
 }
-
 
 /**
  * Layout of the main page elements 
  */
 #wrapper {
-  margin: 0 auto;
-  width: 980px; 
-  padding: 10px;
+    color: #333;
+    font-family: 'Eczar', serif;
+    background-color: #f8f8ff;
+    margin: 0 auto;
+    width: 980px;
+    padding: 10px;
 }
-
 
 /**
  * Layout for header
  */
 #header {
-  position: relative;
-  margin-bottom: 40px;
+    position: relative;
+    margin-bottom: 10px;
 }
 
 .sitetitle {
-  position: absolute;
-  top: 6px;
-  left: 130px;
-  font-size: 48px;
+    position: absolute;
+    top: 1em;
+    left: 4em;
+    font-size: 2.5em;
+    font-family: 'Patua One', cursive;
+    text-shadow: 1px 1px 3px darkblue;
 }
 
 .siteslogan {
-  position: absolute;
-  top: 65px;
-  left: 130px;
-  font-style: italic;
-  color: #666;
+    position: absolute;
+    top: 3.75em;
+    left: 6.75em;
+    font-size: 1.5em;
+    font-style: italic;
+    text-shadow: 1px 1px 3px darkblue;
+    font-family: 'Patua One', cursive;
+}
+
+.sitelogo1 {
+    margin-left: 1em;
+    margin-top: 0.5em;
+    width: 9%;
+}
+
+.sitelogo2 {
+    float: right;
+    width: 40%;
+    margin-right: 0.5em;
 }
 
 
 /**
  * Layout for main
  */
+
+#wrap-main {
+    min-height: 30em;
+    display: table;
+    width: 960px;
+    padding: 10px;
+}
+
 #main {
-  min-height: 20em;
+    display: inline;
+    float: left;
+    width: 64.583333333333%;
+    margin: 0 0 22px 1.0416666666667%;
 }
 
-
-/**
- * Layout for footer
- */
-#footer {
-  margin-top: 40px;
-  border-top: 1px solid #ccc;
-  padding-top: 22px;
+#sidebar {
+    display: inline;
+    float: left;
+    width: 31.25%;
+    margin: 0 1.0416666666667% 22px 0;
+    padding-left: 1.0416666666667%;
+    border-left: 1px solid darkblue;
 }
 
-.sitefooter {
-  color: #666;
+#full {
+    display: inline;
+    float: left;
+    width: 97.916666666667%;
+    margin: 0 1.0416666666667% 22px 0;
 }
 
+#wrap-triptych {
+    *zoom: 1;
+}
+
+#triptych-1,
+#triptych-2,
+#triptych-3 {
+    display: inline;
+    float: left;
+    width: 31.25%;
+    margin: 0 1.0416666666667% 22px 0;
+}
 
 /**
  * For articles
  */
 .article1 {
-  width: 700px;
-  border-right: 1px solid #ccc;
-  padding-right: 1em;
+    width: 98%;
+    padding-right: 1em;
 }
 
 .article1 h1,
-.article1 h2 {
-  border-bottom: 1px solid #ccc;
+.article1 h2,
+.article1 h3 {
+    border-bottom: 1px solid darkblue;
 }
 
-.byline {
-  margin-top: 44px;
-  border-top: 1px dashed #ccc;
-  padding-top: 22px;
-  color: #666;
+/**
+*  Layout front-site
+*/
+
+.recent-questions {
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid #e4e6e8;
+    overflow: hidden;
+    float: left;
+    width: 100%;
 }
 
-.byline p {
-  margin-top: 0;
+.recent-questions .result {
+
+}
+
+.recent-questions .votes {
+    padding: 8px 5px;
+    line-height: 1;
+    display: inline-block;
+    height: 38px;
+    min-width: 38px;
+    margin: 0 3px 0 0;
+    font-size: 11px;
+    color: #848d95;
+    text-align: center;
+}
+
+.recent-questions .answers {
+
+}
+
+.recent-questions .summary {
+
+}
+
+.recent-questions .tags {
+
+}
+
+/**
+ * Layout for footer
+ */
+#footer {
+    margin-top: 40px;
+    border-top: 1px solid darkblue;
+    padding-top: 18px;
+}
+
+.sitefooter {
+    color: #666;
+}
+
+/**
+*   Images
+*/
+
+.about-img {
+    float: right;
+    width: 20%;
 }

@@ -21,8 +21,28 @@ return [
      * Add default views.
      */
     'views' => [
-        ['region' => 'header', 'template' => 'header', 'data' => [], 'sort' => -1],
-        ['region' => 'footer', 'template' => 'footer', 'data' => [], 'sort' => -1],
+        ['region' => 'header',
+            'template' => 'header',
+            'data' => [
+                'siteTitle' => "Allt om Pokémon GO",
+                'siteTagline' => "Frågor och svar",
+            ],
+            'sort' => -1],
+
+        ['region' => 'footer',
+            'template' => 'footer',
+            'data' => [],
+            'sort' => -1],
+        [
+            'region' => 'navbar',
+            'template' => [
+                'callback' => function () {
+                    return $this->di->navbar->create();
+                },
+            ],
+            'data' => [],
+            'sort' => -1
+        ],
     ],
 
 
@@ -38,13 +58,13 @@ return [
         'title_append' => ' | WGTOTW',
 
         // Stylesheets
-        'stylesheets' => ['css/style.css'],
+        'stylesheets' => ['css/style.css', 'css/navbar.css', 'css/questions.css', 'css/users.css', 'css/tags.css'],
 
         // Inline style
         'style' => null,
 
         // Favicon
-        'favicon' => 'favicon.ico',
+        'favicon' => 'favicon.png',
 
         // Path to modernizr or null to disable
         'modernizr' => 'js/modernizr.js',

@@ -1,0 +1,143 @@
+/**
+*  For user-page
+*/
+
+.page-allusers {
+    width: 100%;
+}
+
+.user-table-cell {
+    width: 25%;
+    vertical-align: text-top;
+}
+
+.user-browser {
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+.gravatar {
+    float: left;
+    height: 2.5em;
+    box-shadow: 2px 2px 4px #848d95;
+}
+
+.userdetails {
+    display: block;
+    float: left;
+    margin-left: 9px;
+    width: calc(100% - (2.5em + 9px));
+}
+
+.user-name {
+}
+
+.joined-time {
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+/**
+*  For question table
+*/
+
+.user-info {
+    margin-top: 1px;
+    width: 200px;
+    float: right;
+    line-height: 18px;
+    color: #848d95;
+    box-sizing: border-box;
+    padding: 5px 6px 7px 7px;
+}
+
+.user-action-time {
+    margin-bottom: 2px;
+    white-space: nowrap;
+}
+
+.avatar {
+    float: left;
+    height: 1.5em;
+    box-shadow: 2px 2px 4px #848d95;
+    border-radius: 1px;
+}
+
+.user-details {
+    float: left;
+    margin-left: 8px;
+    margin-top: 4px;
+    width: calc(100% - 40px);
+    line-height: 17px;
+    word-wrap: break-word;
+    font-size: 1em;
+    color: darkblue;
+}
+
+/**
+
+.user-table {
+    width: 90%;
+    margin-top: 1.5em;
+    padding: 5px;
+    border-collapse: collapse;
+    background-color: #ECF2FD;
+    background-color: rgba(236, 242, 253, 0.85);
+}
+
+.user-table th, td{
+    padding: 8px;
+}
+
+.user-table td {
+    border-bottom: 1px solid #66B5C8;
+}
+
+.user-table th {
+    height: 1.5em;
+    text-align: left;
+    border-bottom: 4px solid #66B5C8;
+}
+.user-table .left{
+    text-align: left;
+}
+
+.user-table .center{
+    text-align: center;
+}
+
+.user-table a, a:visited {
+    text-decoration: none;
+    color: #43808E;
+}
+
+.user-table a:hover {
+    text-shadow: 0 0 4px #7E77D3;
+}
+
+*/
+
+/**
+*For description lists
+*/
+
+dl {
+    width: 75%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0
+}
+
+dt {
+    float: left;
+    width: 15%;
+    padding: 0;
+    margin: 0
+}
+
+dd {
+    float: left;
+    width: 85%;
+    padding: 0;
+    margin: 0
+}
