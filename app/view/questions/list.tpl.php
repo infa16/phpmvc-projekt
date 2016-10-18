@@ -1,51 +1,46 @@
 <article class="article1">
 
-    <h2>Alla frågor</h2>
+    <h1><?= $title ?></h1>
 
-    <div id="questions">
-        <div id="question-summary">
+    <?php foreach ($questions as $question) : ?>
+        <div id="questions">
+            <div id="question-summary">
 
-            <div class="statscontainer">
-                <div class="vote">30 röster</div>
-                <div class="answers">17 svar</div>
-            </div>
-            <div class="summary">
-                <h3>
-                    <a class="question-hyperlink" href="#">Rubrik</a>
-                </h3>
-                <div class="question-extract">
-                    <?= substr("Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Sed ante augue, tempor et ornare non, finibus non lectus. Suspendisse
-                     pellentesque felis molestie nibh mattis venenatis eu sed dolor. Ut 
-                     blandit viverra velit. Duis lobortis maximus ante. Donec sit amet nibh 
-                     venenatis, vulputate purus eget, feugiat risus.", 0, 200) . "..." ?>
+                <div class="statscontainer">
+                    <div class="answers"><?= $question->AnswerCount ?> svar</div>
                 </div>
-
-                <div class="tags">
-                    <a class="tag" href>Pokémon</a>
-                    <a class="tag" href>Tips</a>
-                    <a class="tag" href>Pokémon</a>
-                    <a class="tag" href>Tips</a>
-                    <a class="tag" href>Pokémon</a>
-                    <a class="tag" href>Tips</a>
-                    <a class="tag" href>Pokémon</a>
-                    <a class="tag" href>Tips</a>
-                </div>
-
-                <div class="user-info">
-                    <div class="user-action-time">
-                        frågade
-                        <span class="relativetime">10 okt 2016</span>
+                <div class="summary">
+                    <h3>
+                        <a class="question-hyperlink"
+                           href="<?= $this->url->create('questions/id/' . $question->Id) ?>"><?= htmlentities($question->Title) ?></a>
+                    </h3>
+                    <div class="question-extract">
+                        <?= $question->Content ?>
                     </div>
-                    <div class="user-gravatar">
-                        <img class="avatar"
-                             src="http://www.gravatar.com/avatar/676f0ae4634f7084dbf58aceacca9fea?d=identicon"/>
-                    </div>
-                    <div class="user-details"><a href="#">Namn Namn</a></div>
-                </div>
 
+                    <div class="tags">
+                        <?php foreach ($question->Tags as $tag) : ?>
+                            <a class="tag" href><?= htmlentities($tag->Tag) ?></a>
+                        <?php endforeach; ?>
+                    </div>
+
+                    <div class="user-info">
+                        <div class="user-action-time">
+                            frågade
+                            <span
+                                class="relativetime"><?= gmdate("M d Y H:i", strtotime($question->CreatedTime)) ?></span>
+                        </div>
+                        <div class="user-gravatar">
+                            <img class="avatar"
+                                 src="http://www.gravatar.com/avatar/<?= md5(strtolower(trim(htmlentities($question->Email)))) ?>?d=identicon"/>
+                        </div>
+                        <div class="user-details"><a
+                                href="<?= $this->url->create('users/id/' . $question->UserId) ?>"><?= htmlentities($question->Name) ?></a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
-
+    <?php endforeach; ?>
 </article>

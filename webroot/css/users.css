@@ -1,19 +1,21 @@
 /**
-*  For user-page
+*  For user-list
 */
 
 .page-allusers {
     width: 100%;
 }
 
-.user-table-cell {
+.user-cell {
     width: 25%;
-    vertical-align: text-top;
+    float: left;
 }
 
 .user-browser {
     overflow: hidden;
     margin-bottom: 1em;
+    margin-top: 1em;
+    border-bottom: 1px dotted darkblue;
 }
 
 .gravatar {
@@ -29,13 +31,54 @@
     width: calc(100% - (2.5em + 9px));
 }
 
-.user-name {
-}
-
 .joined-time {
     font-size: 12px;
     margin-bottom: 2px;
 }
+
+/**
+*  For user-info
+*/
+
+#user {
+    margin-left: 1em;
+    margin-right: 1em;
+    overflow: hidden;
+}
+
+.view-userbrowser {
+    width: 35%;
+    overflow: hidden;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    border-bottom: 1px dotted darkblue;
+}
+
+.view-gravatar {
+    float: left;
+    height: 5em;
+    box-shadow: 2px 2px 4px #848d95;
+}
+
+.view-userdetails {
+    display: block;
+    float: left;
+    margin-left: 1em;
+}
+
+.view-username {
+    font-size: large;
+}
+
+.view-useremail {
+    font-size: small;
+}
+
+.view-userpost{
+    list-style-type: none;
+}
+
+
 
 /**
 *  For question table
@@ -49,6 +92,7 @@
     color: #848d95;
     box-sizing: border-box;
     padding: 5px 6px 7px 7px;
+    background-color: rgba(0, 0, 139, 0.09);
 }
 
 .user-action-time {
@@ -74,48 +118,32 @@
     color: darkblue;
 }
 
+
 /**
-
-.user-table {
-    width: 90%;
-    margin-top: 1.5em;
-    padding: 5px;
-    border-collapse: collapse;
-    background-color: #ECF2FD;
-    background-color: rgba(236, 242, 253, 0.85);
-}
-
-.user-table th, td{
-    padding: 8px;
-}
-
-.user-table td {
-    border-bottom: 1px solid #66B5C8;
-}
-
-.user-table th {
-    height: 1.5em;
-    text-align: left;
-    border-bottom: 4px solid #66B5C8;
-}
-.user-table .left{
-    text-align: left;
-}
-
-.user-table .center{
-    text-align: center;
-}
-
-.user-table a, a:visited {
-    text-decoration: none;
-    color: #43808E;
-}
-
-.user-table a:hover {
-    text-shadow: 0 0 4px #7E77D3;
-}
-
+*  For index-page: top users
 */
+
+.start-user-browser{
+    overflow: hidden;
+    padding-bottom: 1em;
+    border-bottom: 2px solid darkred;
+}
+
+.start-user-info{
+    overflow: hidden;
+    clear: left;
+    padding-bottom: 1em;
+}
+
+.start-user-name{
+    display: block;
+    float: left;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+}
+
+
+
 
 /**
 *For description lists

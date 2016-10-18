@@ -33,16 +33,34 @@ return [
             'title' => 'Användare',
         ],
 
-        'login' => [
-            'text' => 'Logga in',
-            'url' => $this->di->get('url')->create('login'),
-            'title' => 'Logga in'
-        ],
 
         'about' => [
             'text' => 'Om',
             'url' => $this->di->get('url')->create('about'),
             'title' => 'Om sidan'
+        ],
+
+        'login' => [
+            'class' => 'login',
+            'text' => '<i class="fa fa-user fa-2x" aria-hidden="true"></i>',
+            'url' => $this->di->get('url')->create('login'),
+            'title' => 'Logga in',
+            'submenu' => [
+                'items' => [
+                    'tema' => [
+                        'text' => 'Profil',
+                        'url' => $this->di->get('url')->create('regioner'),
+                        'title' => 'Ett tema med LESS'],
+                    'typography' => [
+                        'text' => 'Skapa användare',
+                        'url' => $this->di->get('url')->create('typography'),
+                        'title' => 'Typografi-test'],
+                    'font-awesome' => [
+                        'text' => 'Logga in/ut',
+                        'url' => $this->di->get('url')->create('font-awesome'),
+                        'title' => 'Font-awesome'],
+                ],
+            ],
         ],
     ],
 

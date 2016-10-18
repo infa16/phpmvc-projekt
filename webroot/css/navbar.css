@@ -3,7 +3,6 @@
  * Changed to only style li-items instead of a.
  */
 #navbar {
-    margin-bottom: 44px;
     padding: 0.4em;
     background-color: lightyellow;
     font-size: medium;
@@ -41,7 +40,45 @@
     border-color: darkred;
 }
 
+.navbar li.selected-parent,
 .navbar li.selected {
     color: darkred;
     border-color: darkred;
+}
+
+.navbar ul ul {
+    padding: 2px 6px 2px 0;
+    position: absolute;
+    left: -9999px;
+    z-index: 2;
+    background-color: #eee;
+}
+
+.navbar li li {
+    width: 100%;
+    border-top: none;
+    border-left: 4px solid transparent;
+}
+
+.navbar li:hover ul {
+    left: 0;
+}
+
+.navbar li li:hover {
+    color: #666;
+    border-color: #666;
+}
+
+.navbar li li.selected {
+    color: #222;
+    border-color: #222;
+}
+
+.navbar li.login {
+    float: right;
+    border: 3px solid transparent;
+}
+
+.navbar li.login:hover {
+    color: darkred;
 }

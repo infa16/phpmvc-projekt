@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\Users;
+namespace Anax\User;
 
 class UserForm extends \Mos\HTMLForm\CForm
 {

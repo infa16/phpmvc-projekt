@@ -20,20 +20,14 @@
     margin: 10px;
 }
 
-.vote {
-    display: block;
-    text-align: center;
-    padding: 7px 0 5px 0;
-    margin-bottom: 8px;
-    border: 2px solid darkblue;
-}
-
 .answers {
     display: block;
-    background-color: darkred;
-    color: lightgoldenrodyellow;
+    background-color: rgba(0, 0, 139, 0.09);
+    color: darkred;
     padding: 7px 0 5px 0;
     text-align: center;
+    margin-top: 20px;
+    border: 2px solid darkred;
 }
 
 .summary {
@@ -65,73 +59,56 @@
 *  Question
 */
 
+#question {
+    margin-left: 1em;
+    margin-right: 1em;
+    overflow: hidden;
+}
+
 #question h1 {
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     line-height: 1.3;
     color: darkblue;
 }
 
-.vote-cell {
-    vertical-align: top;
-    padding-right: 15px;
-}
-
-.vote-container {
-    min-width: 46px;
-    text-align: center;
-}
-
-.vote-up, .vote-down {
-    display: block;
-    margin: 0 auto;
-    width: 40px;
-    height: 40px;
-    font-size: 50px;
-    line-height: 1em;
-    border: 1px solid greenyellow;
-}
-
-.vote-count {
-    display: block;
-    margin: 8px 0;
-    font-size: 20px;
-    border: 1px solid hotpink;
-}
-
-.question-cell {
-    vertical-align: top;
+.post-cell {
+    width: 80%;
+    overflow: hidden;
+    float: left;
+    border-bottom: 1px dotted darkred;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .post-text {
-    width: 550px;
-    margin-bottom: 5px;
+    display: inline-block;
+    width: 100%;
     word-wrap: break-word;
     line-height: 1.3;
+    float: left;
 }
 
-.post-text p {
-    margin-top: 0;
-    margin-bottom: 1em;
+.post-info {
+    display: inline-block;
+    width: 100%;
+    bottom: 5px;
+    clear: both;
 }
 
 /*
 *  For answer
 */
 
-.answer-cell {
-    vertical-align: top;
+#answers {
+    margin-left: 1em;
+    margin-right: 1em;
+    overflow: hidden;
 }
 
-.accepted {
-    display: block;
-    margin: 0 auto;
-    width: 40px;
-    height: 40px;
-    font-size: 40px;
-    line-height: 1em;
-    border: 1px solid greenyellow;
-    padding-top: 8px;
-    color: green;
+#answers h1 {
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+    color: darkblue;
 }
 
 /*
@@ -140,27 +117,28 @@
 
 .comments {
     width: 550px;
-    margin-top: 10px;
-    padding-bottom: 10px;
-    border-top: 1px solid darkred;
 }
 
-.comment-cell {
-    padding: 6px 6px 6px 2px;
-    vertical-align: top;
+.comment {
+    display: inline-block;
+    padding: 6px 6px 6px 20px;
     line-height: 1.3;
-    border-bottom: 1px solid darkred;
-    white-space: nowrap;
-    width: 550px;
-}
-
-.comment-content {
-    display: block;
-    line-height: 1.3;
+    border-top: 1px dotted darkred;
+    /*border-bottom: 1px dotted darkred;*/
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: small;
 }
 
 .comment-text {
     display: block;
+}
+
+.comment-text p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
 }
 
 .comment-user {

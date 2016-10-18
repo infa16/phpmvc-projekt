@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\Questions;
+namespace Anax\Question;
 
 class AnswerForm extends \Mos\HTMLForm\CForm
 {
