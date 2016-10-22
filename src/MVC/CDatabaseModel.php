@@ -35,7 +35,7 @@ class CDatabaseModel implements \Anax\DI\IInjectionAware
      *
      * @param array $properties with properties to set.
      *
-     * @return void
+     * @return voId
      */
     public function setProperties($properties)
     {
@@ -67,13 +67,13 @@ class CDatabaseModel implements \Anax\DI\IInjectionAware
      *
      * @return CDatabaseModel
      */
-    public function find($id)
+    public function find($Id)
     {
         $this->db->select()
             ->from($this->getSource())
-            ->where("id = ?");
+            ->where("Id = ?");
 
-        $this->db->execute([$id]);
+        $this->db->execute([$Id]);
         return $this->db->fetchInto($this);
     }
 
@@ -96,7 +96,7 @@ class CDatabaseModel implements \Anax\DI\IInjectionAware
 
         $res = $this->db->execute($values);
 
-        $this->id = $this->db->lastInsertId();
+        $this->Id = $this->db->lastInsertId();
 
         return $res;
     }
@@ -113,7 +113,7 @@ class CDatabaseModel implements \Anax\DI\IInjectionAware
         $this->setProperties($values);
         $values = $this->getProperties();
 
-        if (!empty($values['id'])) {
+        if (!empty($values['Id'])) {
             return $this->update($values);
         } else {
             return $this->create($values);
@@ -132,14 +132,14 @@ class CDatabaseModel implements \Anax\DI\IInjectionAware
         $keys = array_keys($values);
         $values = array_values($values);
 
-        // Its update, remove id and use as where-clause
-        unset($keys['id']);
-        $values[] = $this->id;
+        // Its update, remove Id and use as where-clause
+        unset($keys['Id']);
+        $values[] = $this->Id;
 
         $this->db->update(
             $this->getSource(),
             $keys,
-            "id = ?"
+            "Id = ?"
         );
 
         return $this->db->execute($values);
@@ -148,18 +148,18 @@ class CDatabaseModel implements \Anax\DI\IInjectionAware
     /**
      * Delete row.
      *
-     * @param integer $id to delete.
+     * @param integer $Id to delete.
      *
      * @return boolean true or false if deleting went okey.
      */
-    public function delete($id)
+    public function delete($Id)
     {
         $this->db->delete(
             $this->getSource(),
-            'id = ?'
+            'Id = ?'
         );
 
-        return $this->db->execute([$id]);
+        return $this->db->execute([$Id]);
     }
 
     /**

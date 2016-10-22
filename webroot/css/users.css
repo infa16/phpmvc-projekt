@@ -46,12 +46,16 @@
     overflow: hidden;
 }
 
+.view-userprofile {
+    overflow: hidden;
+}
+
 .view-userbrowser {
-    width: 35%;
+    float: left;
+    width: 60%;
     overflow: hidden;
     margin-bottom: 1em;
     margin-top: 1em;
-    border-bottom: 1px dotted darkblue;
 }
 
 .view-gravatar {
@@ -74,11 +78,28 @@
     font-size: small;
 }
 
-.view-userpost{
+.view-editprofile {
+    float: right;
+    width: 40%;
+    overflow: hidden;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.view-editprofile ul {
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+.view-userpost {
     list-style-type: none;
 }
 
-
+.view-useractivity {
+    clear: both;
+}
 
 /**
 *  For question table
@@ -96,9 +117,11 @@
 }
 
 .user-action-time {
+    font-size: small;
     margin-bottom: 2px;
     white-space: nowrap;
 }
+
 
 .avatar {
     float: left;
@@ -118,54 +141,34 @@
     color: darkblue;
 }
 
-
 /**
-*  For index-page: top users
+*  For start-view: top users
 */
 
-.start-user-browser{
+.start-user-browser {
     overflow: hidden;
     padding-bottom: 1em;
     border-bottom: 2px solid darkred;
 }
 
-.start-user-info{
+.start-user-info {
     overflow: hidden;
     clear: left;
     padding-bottom: 1em;
 }
 
-.start-user-name{
+.start-user-name {
     display: block;
     float: left;
     margin-top: 0.5em;
     margin-left: 0.5em;
 }
 
-
-
-
 /**
-*For description lists
+*  For login
 */
-
-dl {
-    width: 75%;
-    overflow: hidden;
-    padding: 0;
-    margin: 0
-}
-
-dt {
-    float: left;
-    width: 15%;
-    padding: 0;
-    margin: 0
-}
-
-dd {
-    float: left;
-    width: 85%;
-    padding: 0;
-    margin: 0
+.add-user{
+    display: block;
+    margin-top: 3px;
+    margin-left: 3px;
 }

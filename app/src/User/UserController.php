@@ -9,6 +9,7 @@ namespace Anax\User;
 class UserController implements \Anax\DI\IInjectionAware
 {
     use \Anax\DI\TInjectable;
+    use \Anax\MVC\TRedirectHelpers;
 
 
     /**
@@ -35,12 +36,12 @@ class UserController implements \Anax\DI\IInjectionAware
         ], 'full');
     }
 
+    
     /**
      * List user with id.
      *
      * @param null $userId
      * @internal param int $id of user to display
-     *
      */
     public function idAction($userId = null)
     {
@@ -75,9 +76,7 @@ class UserController implements \Anax\DI\IInjectionAware
     /**
      * Add new user.
      *
-     * @param string $acronym of user to add.
-     *
-     * @return void
+     * @internal param string $acronym of user to add.
      */
     public function addAction()
     {
@@ -93,17 +92,57 @@ class UserController implements \Anax\DI\IInjectionAware
 
     public function updateAction($id)
     {
-        if (!isset($id)) {
-            die("Missing id");
+        if((!$this->di->UserSession->isAuthenticated())) {
+            $this->redirectTo($this->url->create('users'));
+            return;
         }
-        $user = $this->users->find($id);
+        if($this->di->UserSession->getId() != $id) {
+            $this->redirectTo($this->url->create('users'));
+            return;
+        }
+
+        $user = $this->model->find($id);
         $form = new UserForm($user);
         $form->setDI($this->di);
         $form->check();
+
         $this->theme->setTitle("Uppdatera");
         $this->di->views->add('default/page', [
             'title' => "Uppdatera användare",
             'content' => $form->getHTML()
         ]);
+    }
+
+    /**
+     *  Checks if current user is logged in
+     */
+    public function currentAction()
+    {
+        if ($this->di->UserSession->isAuthenticated()) {
+            $this->idAction($this->di->UserSession->getId());
+        } else {
+            $this->loginAction();
+        }
+    }
+
+    public function loginAction()
+    {
+        $form = new \Anax\User\LoginForm();
+        $form->setDI($this->di);
+        $form->check();
+        $this->theme->setTitle("Logga in");
+        $this->di->views->add('users/login', [
+            'title' => "Logga in",
+            'content' => $form->getHTML()
+        ], 'main');
+    }
+
+    public function logoutAction()
+    {
+        $session = $this->di->UserSession;
+        if ($session->isAuthenticated()) {
+            $session->logout();
+        }
+        $this->redirectTo('');
     }
 }

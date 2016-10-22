@@ -42,7 +42,7 @@ class TagController implements \Anax\DI\IInjectionAware
             'tags' => $tags
         ], 'full');
     }
-
+    
 
     /**
      * List questions with tag-id
@@ -54,6 +54,6 @@ class TagController implements \Anax\DI\IInjectionAware
     public function idAction($tagId = null)
     {
         $tag = $this->model->find($tagId);
-        $this->di->QuestionsController->listAction('Frågor med taggen '. $tag->Tag, $tagId);
+        $this->di->QuestionsController->listAction('Frågor med taggen ' . $tag->Tag, $tagId);
     }
 }

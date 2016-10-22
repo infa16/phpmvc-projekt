@@ -51,27 +51,27 @@
     position: absolute;
     left: -9999px;
     z-index: 2;
-    background-color: #eee;
+    background-color: lightyellow;
 }
 
 .navbar li li {
     width: 100%;
-    border-top: none;
-    border-left: 4px solid transparent;
+    border: 3px solid transparent;
 }
 
 .navbar li:hover ul {
-    left: 0;
+    left: -120px;
+    border: 3px solid yellow;
 }
 
 .navbar li li:hover {
-    color: #666;
-    border-color: #666;
+    color: darkblue;
+    border: 3px solid darkred;
 }
 
 .navbar li li.selected {
-    color: #222;
-    border-color: #222;
+    color: darkred;
+    border-color: darkred;
 }
 
 .navbar li.login {

@@ -1,30 +1,40 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Bergman
+ * Date: 2016-10-19
+ * Time: 20:29
+ */
 
-namespace Anax\Question;
+namespace Anax\User;
 
-class AnswerForm extends \Mos\HTMLForm\CForm
+
+class LoginForm extends \Mos\HTMLForm\CForm
 {
-
     use \Anax\DI\TInjectionAware;
     use \Anax\MVC\TRedirectHelpers;
 
-    private $questionId;
-
-    public function __construct($questionId)
+    public function __construct($question = null)
     {
-        $this->questionId = $questionId;
         parent::__construct([], [
-            'content' => [
-                'type' => 'textarea',
+            'user' => [
+                'type' => 'text',
                 'value' => null,
-                'label' => 'Svar:',
+                'label' => 'Användarnamn:',
+                'required' => true,
+                'validation' => ['not_empty'],
+            ],
+            'password' => [
+                'type' => 'password',
+                'value' => null,
+                'label' => 'Lösenord:',
                 'required' => true,
                 'validation' => ['not_empty']
             ],
             'submit' => [
                 'type' => 'submit',
                 'callback' => [$this, 'callbackSubmit'],
-                'value' => 'Spara',
+                'value' => 'Logga in',
             ],
         ]);
     }
@@ -47,19 +57,9 @@ class AnswerForm extends \Mos\HTMLForm\CForm
      */
     public function callbackSubmit()
     {
-        $now = gmdate('Y-m-d H:i:s');
-
-        $answer = new AnswerModel();
-        $answer->setDI($this->di);
-        $result = $answer->save([
-            'QuestionId' => $this->questionId,
-            'Content' => $this->value('content'),
-            'CreatedBy' => $this->di->UserSession->getId(),
-            'CreatedTime' => $now
-        ]);
-
-        $this->answer = $answer;
-        return $result;
+        $user = $this->value('user');
+        $password = $this->value('password');
+        return $this->di->UserSession->login($user, $password);
     }
 
     /**
@@ -67,7 +67,7 @@ class AnswerForm extends \Mos\HTMLForm\CForm
      */
     public function callbackSuccess()
     {
-        $this->redirectTo($this->di->url->create('questions/id/' . $this->questionId));
+        $this->redirectTo('');
     }
 
     /**
@@ -76,6 +76,6 @@ class AnswerForm extends \Mos\HTMLForm\CForm
      */
     public function callbackFail()
     {
-        $this->redirectTo($this->di->url->create('questions/id/' . $this->questionId));
+        $this->redirectTo('users/login');
     }
 }

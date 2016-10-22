@@ -3,13 +3,15 @@
 namespace Anax\Question;
 
 
+use Phpmvc\Comment\CommentController;
+
 class QuestionController implements \Anax\DI\IInjectionAware
 {
     use \Anax\DI\TInjectable;
-
+    use \Anax\MVC\TRedirectHelpers;
 
     /**
-     * Initialize the controller.
+     * Initializes the controller.
      *
      * @return void
      */
@@ -18,7 +20,6 @@ class QuestionController implements \Anax\DI\IInjectionAware
         $this->model = new \Anax\Question\QuestionModel();
         $this->model->setDI($this->di);
     }
-
 
     public function listAction($title = 'Alla frågor', $tag = null)
     {
@@ -50,7 +51,7 @@ class QuestionController implements \Anax\DI\IInjectionAware
     }
 
     /**
-     * List question with id
+     * Lists question with id
      *
      * @param null $questionId
      */
@@ -64,6 +65,11 @@ class QuestionController implements \Anax\DI\IInjectionAware
             ->execute([$questionId]);
         $question = $this->db->fetchOne();
 
+        if (!$question) {
+            $this->redirectTo('questions');
+            return;
+        }
+
         $this->addTags($question);
         $this->addComments($question, 1);
 
@@ -72,6 +78,7 @@ class QuestionController implements \Anax\DI\IInjectionAware
             ->from('Answer a')
             ->join('User u', 'u.Id = a.CreatedBy')
             ->where('a.QuestionId = ?')
+            ->orderby('a.Id', 'DESC')
             ->execute([$question->Id]);
         $answers = $this->db->fetchAll();
 
@@ -89,6 +96,11 @@ class QuestionController implements \Anax\DI\IInjectionAware
         ], 'full');
     }
 
+    /**
+     * Fetches tag/s to the question
+     *
+     * @param $question
+     */
     private function addTags($question)
     {
         $this->db
@@ -101,6 +113,12 @@ class QuestionController implements \Anax\DI\IInjectionAware
         $question->Tags = $this->db->fetchAll();
     }
 
+    /**
+     * Fetches comment/s to question/answer
+     *
+     * @param $owner
+     * @param $type
+     */
     private function addComments($owner, $type)
     {
         $this->db
@@ -116,5 +134,99 @@ class QuestionController implements \Anax\DI\IInjectionAware
         foreach ($owner->Comments as $comment) {
             $comment->Content = $this->textFilter->doFilter($comment->Content, 'markdown');
         }
+    }
+
+    /**
+     * Adds a new question
+     *
+     * @return void
+     */
+    public function addAction()
+    {
+        $this->di->UserSession->requireSession();
+
+        $form = new QuestionForm($this->di);
+        $form->check();
+
+        $this->theme->setTitle("Ny fråga");
+        $this->di->views->add('default/page', [
+            'title' => "Ställ en fråga",
+            'content' => $form->getHTML()
+        ]);
+    }
+
+    /**
+     * Adds comment to question
+     *
+     * @param null $questionId
+     */
+    public function addQuestionCommentAction($questionId = null)
+    {
+        $model = new QuestionModel();
+        $model->setDI($this->di);
+        if (!$model->find($questionId)) {
+            $this->redirectTo('questions');
+        }
+        $this->addComment($questionId, $questionId, 1);
+    }
+
+    /**
+     * Adds comment to answer
+     *
+     * @param null $answerId
+     */
+    public function addAnswerCommentAction($answerId = null)
+    {
+        $model = new AnswerModel();
+        $model->setDI($this->di);
+        if (!$model->find($answerId)) {
+            $this->redirectTo('questions');
+        }
+        $this->addComment($model->QuestionId, $answerId, 2);
+    }
+
+    /**
+     * Gets form for comment on question/answer
+     *
+     * @param null $referenceId Question id
+     * @param null $type 1 = Question comment, 2 = Answer comment
+     */
+    private function addComment($questionId, $referenceId, $type)
+    {
+        $this->di->UserSession->requireSession();
+
+        $form = new CommentForm($questionId, $referenceId, $type);
+        $form->setDI($this->di);
+        $form->check();
+
+        $this->theme->setTitle("Kommentera");
+        $this->di->views->add('default/page', [
+            'title' => "Skriv en kommentar",
+            'content' => $form->getHTML()
+        ]);
+    }
+
+    /**
+     * Gets form for answer to question
+     *
+     * @return void
+     */
+    public function addAnswerAction($questionId = null)
+    {
+        if (!$questionId) {
+            $this->redirectTo('questions');
+        }
+
+        $this->di->UserSession->requireSession();
+
+        $form = new AnswerForm($questionId);
+        $form->setDI($this->di);
+        $form->check();
+
+        $this->theme->setTitle("Svara");
+        $this->di->views->add('default/page', [
+            'title' => "Skriv ett svar",
+            'content' => $form->getHTML()
+        ]);
     }
 }

@@ -43,22 +43,25 @@ return [
         'login' => [
             'class' => 'login',
             'text' => '<i class="fa fa-user fa-2x" aria-hidden="true"></i>',
-            'url' => $this->di->get('url')->create('login'),
-            'title' => 'Logga in',
+            'url' => $this->di->get('url')->create('users/current'),
+            'title' => '',
             'submenu' => [
                 'items' => [
-                    'tema' => [
-                        'text' => 'Profil',
-                        'url' => $this->di->get('url')->create('regioner'),
-                        'title' => 'Ett tema med LESS'],
-                    'typography' => [
-                        'text' => 'Skapa användare',
-                        'url' => $this->di->get('url')->create('typography'),
-                        'title' => 'Typografi-test'],
-                    'font-awesome' => [
-                        'text' => 'Logga in/ut',
-                        'url' => $this->di->get('url')->create('font-awesome'),
-                        'title' => 'Font-awesome'],
+                    'profile' => [
+                        'text' => '<i class="fa fa-user" aria-hidden="true"></i> Profil',
+                        'url' => $this->di->get('url')->create('users/current'),
+                        'title' => 'Profil'],
+                    'adduser' => [
+                        'text' => '<i class="fa fa-user-plus" aria-hidden="true"></i> Skapa användare',
+                        'url' => $this->di->get('url')->create('users/add'),
+                        'title' => 'Lägg till en ny användare'],
+                    'login' => [
+                        'text' => '<i class="fa fa-sign-in" aria-hidden="true"></i> '
+                            . ($this->di->get('UserSession')->isAuthenticated() ? 'Logga ut' : 'Logga in'),
+                        'url' => $this->di->get('UserSession')->isAuthenticated()
+                            ? $this->di->get('url')->create('users/logout')
+                            : $this->di->get('url')->create('users/login'),
+                        'title' => $this->di->get('UserSession')->isAuthenticated() ? 'Logga ut' : 'Logga in'],
                 ],
             ],
         ],

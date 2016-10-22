@@ -2,22 +2,26 @@
 
 namespace Anax\Question;
 
-class AnswerForm extends \Mos\HTMLForm\CForm
+class CommentForm extends \Mos\HTMLForm\CForm
 {
-
     use \Anax\DI\TInjectionAware;
     use \Anax\MVC\TRedirectHelpers;
 
     private $questionId;
+    private $referenceId;
+    private $referenceType;
 
-    public function __construct($questionId)
+    public function __construct($questionId, $referenceId, $referenceType)
     {
         $this->questionId = $questionId;
+        $this->referenceId = $referenceId;
+        $this->referenceType = $referenceType;
+
         parent::__construct([], [
             'content' => [
                 'type' => 'textarea',
                 'value' => null,
-                'label' => 'Svar:',
+                'label' => 'Kommentar:',
                 'required' => true,
                 'validation' => ['not_empty']
             ],
@@ -49,16 +53,15 @@ class AnswerForm extends \Mos\HTMLForm\CForm
     {
         $now = gmdate('Y-m-d H:i:s');
 
-        $answer = new AnswerModel();
-        $answer->setDI($this->di);
-        $result = $answer->save([
-            'QuestionId' => $this->questionId,
+        $model = new CommentModel();
+        $model->setDI($this->di);
+        $result = $model->save([
+            'ReferenceId' => $this->referenceId,
+            'ReferenceType' => $this->referenceType,
             'Content' => $this->value('content'),
             'CreatedBy' => $this->di->UserSession->getId(),
             'CreatedTime' => $now
         ]);
-
-        $this->answer = $answer;
         return $result;
     }
 

@@ -1,6 +1,12 @@
 /**
 * Question-list
 */
+.ask-question {
+    float: right;
+    font-size: large;
+    padding: 5px;
+    background-color: rgba(139, 0, 0, 0.19);
+}
 
 #questions {
     float: left;
@@ -112,7 +118,7 @@
 }
 
 /*
-*  For comments to answer
+*  For comments
 */
 
 .comments {
@@ -124,7 +130,6 @@
     padding: 6px 6px 6px 20px;
     line-height: 1.3;
     border-top: 1px dotted darkred;
-    /*border-bottom: 1px dotted darkred;*/
     width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -138,10 +143,93 @@
 .comment-text p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-
 }
 
 .comment-user {
     white-space: nowrap;
     padding: 0;
+}
+
+.add-comment {
+    clear: both;
+}
+
+.add-comment a {
+    color: rgba(0, 0, 139, 0.36);
+}
+
+.add-answer {
+    font-size: large;
+    text-align: center;
+    padding: 5px;
+    margin-top: 0.5em;
+    background-color: rgba(139, 0, 0, 0.19);
+}
+
+/*
+*  For start-view
+*/
+
+.start-question {
+
+    border-bottom: 1px solid darkblue;
+    width: 98%;
+    overflow: hidden;
+}
+
+.start-statscontainer {
+    width: 58px;
+    float: left;
+    margin: 20px 10px 0;
+}
+
+.start-answers {
+    display: block;
+    background-color: rgba(0, 0, 139, 0.09);
+    color: darkred;
+    padding: 3px 0 3px 0;
+    text-align: center;
+    font-size: small;
+    border: 2px solid darkred;
+}
+
+.start-summary {
+    width: 100%;
+    overflow: hidden;
+}
+
+.start-header {
+    float: left;
+    width: 80%;
+}
+
+.start-header h3{
+    margin-bottom: 0;
+    border:none;
+}
+
+.start-question-user-info {
+    float: right;
+    width: 50%;
+    overflow: hidden;
+    color: #848d95;
+
+}
+
+.start-user-action-time {
+    float: left;
+    font-size: small;
+    text-align: right;
+    white-space: nowrap;
+    width: 49%;
+}
+
+.start-user-details {
+    float: left;
+    font-size: small;
+    width: 49%;
+    padding-left: 2px;
+
+    color: darkblue;
+
 }

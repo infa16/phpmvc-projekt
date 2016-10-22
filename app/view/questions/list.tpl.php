@@ -2,6 +2,13 @@
 
     <h1><?= $title ?></h1>
 
+    <!-- Om inloggad -->
+    <a class="question-hyperlink"
+       href="<?= $this->url->create('questions/add/') ?>">
+        <div class="ask-question"><i class="fa fa-commenting-o" aria-hidden="true"> Ny fråga</i></div>
+    </a>
+
+
     <?php foreach ($questions as $question) : ?>
         <div id="questions">
             <div id="question-summary">
@@ -27,15 +34,16 @@
                     <div class="user-info">
                         <div class="user-action-time">
                             frågade
-                            <span
-                                class="relativetime"><?= gmdate("M d Y H:i", strtotime($question->CreatedTime)) ?></span>
+                            <span><?= gmdate("M d Y H:i", strtotime($question->CreatedTime)) ?></span>
                         </div>
                         <div class="user-gravatar">
                             <img class="avatar"
                                  src="http://www.gravatar.com/avatar/<?= md5(strtolower(trim(htmlentities($question->Email)))) ?>?d=identicon"/>
                         </div>
-                        <div class="user-details"><a
-                                href="<?= $this->url->create('users/id/' . $question->UserId) ?>"><?= htmlentities($question->Name) ?></a>
+                        <div class="user-details">
+                            <a href="<?= $this->url->create('users/id/' . $question->UserId) ?>">
+                                <?= htmlentities($question->Name) ?>
+                            </a>
                         </div>
                     </div>
 

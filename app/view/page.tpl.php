@@ -1,3 +1,3 @@
 <article class="article1">
-    <?=$content?>
+    <?= $content ?>
 </article>
