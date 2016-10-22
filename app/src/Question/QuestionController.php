@@ -2,9 +2,6 @@
 
 namespace Anax\Question;
 
-
-use Phpmvc\Comment\CommentController;
-
 class QuestionController implements \Anax\DI\IInjectionAware
 {
     use \Anax\DI\TInjectable;

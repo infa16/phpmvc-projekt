@@ -11,7 +11,6 @@ class UserController implements \Anax\DI\IInjectionAware
     use \Anax\DI\TInjectable;
     use \Anax\MVC\TRedirectHelpers;
 
-
     /**
      * Initialize the controller.
      *
@@ -36,7 +35,6 @@ class UserController implements \Anax\DI\IInjectionAware
         ], 'full');
     }
 
-    
     /**
      * List user with id.
      *
@@ -63,7 +61,6 @@ class UserController implements \Anax\DI\IInjectionAware
             ->join('Answer a', 'a.QuestionId = q.Id AND a.CreatedBy = ?')
             ->execute([$userId]);
         $answered = $this->db->fetchAll();
-
 
         $this->theme->setTitle("Användare");
         $this->views->add('users/view', [
@@ -92,11 +89,11 @@ class UserController implements \Anax\DI\IInjectionAware
 
     public function updateAction($id)
     {
-        if((!$this->di->UserSession->isAuthenticated())) {
+        if ((!$this->di->UserSession->isAuthenticated())) {
             $this->redirectTo($this->url->create('users'));
             return;
         }
-        if($this->di->UserSession->getId() != $id) {
+        if ($this->di->UserSession->getId() != $id) {
             $this->redirectTo($this->url->create('users'));
             return;
         }

@@ -131,7 +131,6 @@ $app->db->execute([
 ]);
 $blancheId = $app->db->lastInsertId();
 
-
 $app->db->insert(
     'Question',
     ['Title', 'Content', 'CreatedBy', 'CreatedTime']

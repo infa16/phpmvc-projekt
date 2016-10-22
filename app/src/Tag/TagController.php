@@ -2,11 +2,9 @@
 
 namespace Anax\Tag;
 
-
 class TagController implements \Anax\DI\IInjectionAware
 {
     use \Anax\DI\TInjectable;
-
 
     /**
      * Initialize the controller.
@@ -17,9 +15,7 @@ class TagController implements \Anax\DI\IInjectionAware
     {
         $this->model = new \Anax\Tag\TagModel();
         $this->model->setDI($this->di);
-
     }
-
 
     /**
      * List all tags.
@@ -42,7 +38,6 @@ class TagController implements \Anax\DI\IInjectionAware
             'tags' => $tags
         ], 'full');
     }
-    
 
     /**
      * List questions with tag-id

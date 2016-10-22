@@ -1,3 +1,5 @@
+/*csslint floats:false */
+
 /**
 * Question-list
 */
@@ -5,6 +7,7 @@
     float: right;
     font-size: large;
     padding: 5px;
+    background-color: rgb(139, 0, 0);
     background-color: rgba(139, 0, 0, 0.19);
 }
 
@@ -28,6 +31,7 @@
 
 .answers {
     display: block;
+    background-color: rgb(0, 0, 139);
     background-color: rgba(0, 0, 139, 0.09);
     color: darkred;
     padding: 7px 0 5px 0;
@@ -155,6 +159,7 @@
 }
 
 .add-comment a {
+    color: rgb(0, 0, 139);
     color: rgba(0, 0, 139, 0.36);
 }
 
@@ -163,6 +168,7 @@
     text-align: center;
     padding: 5px;
     margin-top: 0.5em;
+    background-color: rgb(139, 0, 0);
     background-color: rgba(139, 0, 0, 0.19);
 }
 
@@ -185,6 +191,7 @@
 
 .start-answers {
     display: block;
+    background-color: rgb(0, 0, 139);
     background-color: rgba(0, 0, 139, 0.09);
     color: darkred;
     padding: 3px 0 3px 0;

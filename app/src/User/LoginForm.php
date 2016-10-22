@@ -8,7 +8,6 @@
 
 namespace Anax\User;
 
-
 class LoginForm extends \Mos\HTMLForm\CForm
 {
     use \Anax\DI\TInjectionAware;
@@ -79,3 +78,4 @@ class LoginForm extends \Mos\HTMLForm\CForm
         $this->redirectTo('users/login');
     }
 }
+''

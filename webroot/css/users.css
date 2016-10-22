@@ -1,3 +1,5 @@
+/*csslint floats:false */
+
 /**
 *  For user-list
 */
@@ -113,6 +115,7 @@
     color: #848d95;
     box-sizing: border-box;
     padding: 5px 6px 7px 7px;
+    background-color: rgb(0, 0, 139);
     background-color: rgba(0, 0, 139, 0.09);
 }
 

@@ -6,7 +6,6 @@ class UserForm extends \Mos\HTMLForm\CForm
 {
     use \Anax\DI\TInjectionAware;
     use \Anax\MVC\TRedirectHelpers;
-
     private $user;
 
     /**
@@ -89,7 +88,6 @@ class UserForm extends \Mos\HTMLForm\CForm
         parent::__construct([], $elements);
     }
 
-
     /**
      * Customise the check() method.
      *
@@ -137,7 +135,6 @@ class UserForm extends \Mos\HTMLForm\CForm
         return $result;
     }
 
-
     /**
      * Callback success - Form gets processed
      */
@@ -156,4 +153,3 @@ class UserForm extends \Mos\HTMLForm\CForm
         $this->redirectTo();
     }
 }
-
