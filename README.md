@@ -15,7 +15,7 @@ Run `composer install --no-dev` to download all required dependencies.
 * Apache need to be configured to read .htaccess files and allow override.
 * Some files need to be modified in order for the website to work.
   * `webroot/.htaccess`  
-  Settings for clean URLs. #Rewrite module must be on for clean urls to work. Change base url in #Rewrite base if necessary.
+  Change RewriteBase to match your setup. 
   * `app/config/database_mysql.php`  
   Change the database settings.
   
