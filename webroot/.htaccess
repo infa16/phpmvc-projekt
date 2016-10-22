@@ -6,7 +6,6 @@ ErrorDocument 404 "This is a Anax 404. Document is not here."
   RewriteEngine on
 
   RewriteBase /phpmvc-projekt
-  #RewriteBase /~infa16/dbwebb-kurser/phpmvc/me/kmom10/Anax-MVC/webroot/
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

@@ -14,5 +14,17 @@ favorit-Pokémon är Eevee, mest för att det under den gulliga ytan finns en
 bestämd räv och för att Eevee har så många möjligheter i sin utveckling.
  
 *Den här sidan är utvecklad som ett projektarbete i kursen PHPMVC på BTH. 
-Den har inga som helst kopplingar till Nintendo, The Pokémon Company, Game Freak, eller Niantic.*
+Den har inga som helst kopplingar till Nintendo, The Pokémon Company, Game Freak eller Niantic.*
  
+ 
+ ============================================================
+ 
+ **_Användare som skapas automatiskt._**    
+ 
+ 
+De användare som skapas automatiskt använder det som står 
+framför @ i mailadressen som användarnamn och lösenord.
+
+Det går att återställa databasen till "ursprungsläge" 
+med de frågor och användare som är inlagda från början
+genom att klicka på 'Återställ databasen' längst ner på sidan.
